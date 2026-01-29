@@ -1,0 +1,22 @@
+TEST AUDIO FILES - ANSWER KEY
+============================================================
+
+Use these files to test your trained model's predictions.
+The actual classes are:
+
+test_audio_001.wav        -> whale_calls
+test_audio_005.wav        -> whale_calls
+test_audio_009.wav        -> whale_calls
+test_audio_002.wav        -> ship_noise
+test_audio_006.wav        -> ship_noise
+test_audio_010.wav        -> ship_noise
+test_audio_003.wav        -> ambient_sound
+test_audio_007.wav        -> ambient_sound
+test_audio_011.wav        -> ambient_sound
+test_audio_004.wav        -> whale_calls
+test_audio_008.wav        -> ship_noise
+test_audio_012.wav        -> ambient_sound
+
+============================================================
+Note: These files are generated synthetically for testing.
+Train your model on data/raw/ first, then predict these files!
