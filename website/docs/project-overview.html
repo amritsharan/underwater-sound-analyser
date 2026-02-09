@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" class="doc-page">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Project Overview | Underwater Sound Classifier</title>
+    <meta
+      name="description"
+      content="Project overview for the Underwater Sound Classifier."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="site-header">
+      <div class="brand">Underwater Sound Classifier</div>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="quickstart.html">Quickstart</a>
+        <a href="getting-started.html">Getting started</a>
+        <a href="api-reference.html">API reference</a>
+      </nav>
+      <a class="cta" href="../index.html#start">Get started</a>
+    </header>
+
+    <main>
+      <section class="doc-hero">
+        <p class="eyebrow">Project overview</p>
+        <h1>Underwater Sound Classifier</h1>
+        <p>
+          Classify underwater audio with a practical, beginner-friendly pipeline
+          that combines spectral analysis and fast machine learning models.
+        </p>
+        <div class="doc-nav">
+          <a href="quickstart.html">Quickstart guide</a>
+          <a href="getting-started.html">Getting started</a>
+          <a href="api-reference.html">API reference</a>
+        </div>
+      </section>
+
+      <section class="doc-content">
+        <article class="doc-section">
+          <h3>Why it matters</h3>
+          <p>
+            Underwater sound classification helps marine research, environmental
+            monitoring, and ship traffic analysis by turning raw audio into
+            consistent labels like whale calls, ship noise, and ambient ocean
+            sounds.
+          </p>
+        </article>
+
+        <article class="doc-section">
+          <h3>Core features</h3>
+          <ul>
+            <li>Load WAV audio and resample to 16 kHz with automatic mono conversion.</li>
+            <li>Extract MFCC features and summary statistics (26D feature vector).</li>
+            <li>Train SVM or Random Forest models with built-in evaluation.</li>
+            <li>Visualize spectrograms, MFCCs, and confusion matrices.</li>
+            <li>Save and reuse trained models for batch prediction.</li>
+          </ul>
+        </article>
+
+        <article class="doc-section">
+          <h3>Project structure</h3>
+          <pre><code>underwater-sound-classifier/
+├── classifier.py
+├── example.py
+├── advanced_examples.py
+├── data/
+│   ├── raw/
+│   └── processed/
+├── models/
+├── requirements.txt
+├── README.md
+├── QUICKSTART.md
+├── SETUP.md
+└── API_REFERENCE.md</code></pre>
+        </article>
+
+        <article class="doc-section">
+          <h3>Expected performance</h3>
+          <p>
+            With 50 files per class you can expect 85-95% accuracy using a Random
+            Forest. Accuracy improves as you add more examples.
+          </p>
+          <pre><code>10 files/class  -> 60-75% (SVM)
+20 files/class  -> 75-85% (SVM)
+50 files/class  -> 85-95% (Random Forest)
+100+ files/class -> 90-99% (Random Forest)</code></pre>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Underwater Sound Classifier. MIT License.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,249 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Underwater Sound Classifier</title>
+    <meta
+      name="description"
+      content="Classify underwater audio using machine learning and spectral analysis."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="site-header">
+      <div class="brand">Underwater Sound Classifier</div>
+      <nav class="nav">
+        <a href="#features">Features</a>
+        <a href="#pipeline">Pipeline</a>
+        <a href="#performance">Performance</a>
+        <a href="#start">Quickstart</a>
+        <a href="#docs">Docs</a>
+      </nav>
+      <a class="cta" href="#start">Get started</a>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-content">
+          <p class="eyebrow">Machine learning for ocean acoustics</p>
+          <h1>
+            Classify underwater audio with spectral analysis and compact models.
+          </h1>
+          <p class="lead">
+            A practical pipeline for marine research, environmental monitoring, and
+            ship traffic analysis. Load WAV files, extract MFCC features, and train
+            SVM or Random Forest models in minutes.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#start">Run the quickstart</a>
+            <a class="button ghost" href="#docs">Read the docs</a>
+          </div>
+          <div class="hero-stats" aria-label="project highlights">
+            <div>
+              <span class="stat">26</span>
+              <span class="label">features per file</span>
+            </div>
+            <div>
+              <span class="stat">2</span>
+              <span class="label">model choices</span>
+            </div>
+            <div>
+              <span class="stat">3</span>
+              <span class="label">core sound classes</span>
+            </div>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orb"></div>
+          <div class="wave">
+            <div class="wave-line"></div>
+            <div class="wave-line"></div>
+            <div class="wave-line"></div>
+            <div class="wave-line"></div>
+          </div>
+          <div class="floating-card">
+            <p class="card-title">Sample prediction</p>
+            <p class="card-body">whale_calls</p>
+            <p class="card-meta">confidence: 0.87</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="features" class="section">
+        <div class="section-header">
+          <h2>Features built for real data</h2>
+          <p>
+            From audio loading to visualization, everything you need to understand
+            and classify underwater sound.
+          </p>
+        </div>
+        <div class="grid">
+          <article class="card">
+            <h3>Audio processing</h3>
+            <p>
+              Load WAV files, resample to 16 kHz, and convert to mono for consistent
+              analysis.
+            </p>
+          </article>
+          <article class="card">
+            <h3>MFCC features</h3>
+            <p>
+              Extract 13 MFCC coefficients and summary statistics for a compact 26D
+              vector.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Two fast models</h3>
+            <p>
+              Use SVM for small datasets or Random Forest for larger collections.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Visualization</h3>
+            <p>
+              Plot spectrograms, MFCCs, and confusion matrices to validate results.
+            </p>
+          </article>
+          <article class="card">
+            <h3>Model reuse</h3>
+            <p>Save trained models and run batch prediction on new audio files.</p>
+          </article>
+          <article class="card">
+            <h3>Clear docs</h3>
+            <p>Step-by-step guides plus API reference for deeper customization.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="pipeline" class="section split">
+        <div class="split-text">
+          <h2>Understand the pipeline in one view</h2>
+          <p>
+            The classifier follows a clear flow: load audio, extract MFCC features,
+            scale them, then train and evaluate. Each step is exposed so you can
+            extend or replace it.
+          </p>
+          <ul class="pipeline">
+            <li>Load WAV audio by class</li>
+            <li>Extract MFCC features and stats</li>
+            <li>Normalize with StandardScaler</li>
+            <li>Train SVM or Random Forest</li>
+            <li>Evaluate with accuracy and F1</li>
+          </ul>
+        </div>
+        <div class="split-visual">
+          <div class="stack">
+            <div class="stack-item">Audio files</div>
+            <div class="stack-item">MFCC features</div>
+            <div class="stack-item">Scaled vectors</div>
+            <div class="stack-item">Classifier</div>
+            <div class="stack-item">Predictions</div>
+          </div>
+        </div>
+      </section>
+
+      <section id="performance" class="section">
+        <div class="section-header">
+          <h2>Expected performance</h2>
+          <p>
+            Accuracy improves with more data. Use the table as a starting point for
+            planning collection size.
+          </p>
+        </div>
+        <div class="table">
+          <div class="table-row table-head">
+            <span>Dataset size</span>
+            <span>Model</span>
+            <span>Accuracy</span>
+            <span>Training time</span>
+          </div>
+          <div class="table-row">
+            <span>10 files per class</span>
+            <span>SVM</span>
+            <span>60-75%</span>
+            <span>&lt; 1 sec</span>
+          </div>
+          <div class="table-row">
+            <span>20 files per class</span>
+            <span>SVM</span>
+            <span>75-85%</span>
+            <span>~2 sec</span>
+          </div>
+          <div class="table-row">
+            <span>50 files per class</span>
+            <span>Random Forest</span>
+            <span>85-95%</span>
+            <span>~5 sec</span>
+          </div>
+          <div class="table-row">
+            <span>100+ files per class</span>
+            <span>Random Forest</span>
+            <span>90-99%</span>
+            <span>~30 sec</span>
+          </div>
+        </div>
+      </section>
+
+      <section id="start" class="section start">
+        <div class="section-header">
+          <h2>Quickstart in 4 steps</h2>
+          <p>Get a model trained and predicting in under 30 minutes.</p>
+        </div>
+        <div class="steps">
+          <div class="step">
+            <span class="step-index">01</span>
+            <h3>Install dependencies</h3>
+            <pre><code>python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt</code></pre>
+          </div>
+          <div class="step">
+            <span class="step-index">02</span>
+            <h3>Organize audio data</h3>
+            <pre><code>data/raw/
+  whale_calls/
+  ship_noise/
+  ambient/</code></pre>
+          </div>
+          <div class="step">
+            <span class="step-index">03</span>
+            <h3>Train a model</h3>
+            <pre><code>python example.py</code></pre>
+          </div>
+          <div class="step">
+            <span class="step-index">04</span>
+            <h3>Predict new audio</h3>
+            <pre><code>python my_prediction.py</code></pre>
+          </div>
+        </div>
+      </section>
+
+      <section id="docs" class="section docs">
+        <div class="section-header">
+          <h2>Documentation</h2>
+          <p>Use the guides below to dig deeper into the project.</p>
+        </div>
+        <div class="grid">
+          <a class="doc-card" href="docs/project-overview.html">Project overview</a>
+          <a class="doc-card" href="docs/quickstart.html">Quickstart guide</a>
+          <a class="doc-card" href="docs/getting-started.html">Getting started</a>
+          <a class="doc-card" href="docs/api-reference.html">API reference</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Underwater Sound Classifier. MIT License.</p>
+    </footer>
+
+    <script src="app.js"></script>
+  </body>
+</html>
