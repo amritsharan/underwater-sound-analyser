@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en" class="doc-page">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Getting Started | Underwater Sound Classifier</title>
+    <meta name="description" content="Getting started guide." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="site-header">
+      <div class="brand">Underwater Sound Classifier</div>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="project-overview.html">Overview</a>
+        <a href="quickstart.html">Quickstart</a>
+        <a href="api-reference.html">API reference</a>
+      </nav>
+      <a class="cta" href="../index.html#start">Get started</a>
+    </header>
+
+    <main>
+      <section class="doc-hero">
+        <p class="eyebrow">Getting started</p>
+        <h1>Your first 30 minutes</h1>
+        <p>
+          A step-by-step guide to install dependencies, verify setup, and train
+          your first underwater audio classifier.
+        </p>
+      </section>
+
+      <section class="doc-content">
+        <article class="doc-section">
+          <h3>Step 1: Install dependencies</h3>
+          <pre><code>python -m venv venv
+venv\Scripts\activate
+pip install --upgrade pip
+pip install -r requirements.txt</code></pre>
+        </article>
+
+        <article class="doc-section">
+          <h3>Step 2: Verify installation</h3>
+          <pre><code>python test_classifier.py</code></pre>
+          <p>Confirm all required libraries are installed correctly.</p>
+        </article>
+
+        <article class="doc-section">
+          <h3>Step 3: Prepare sample data</h3>
+          <pre><code>python example.py</code></pre>
+          <p>
+            This creates the folder structure and shows where to add audio files.
+          </p>
+        </article>
+
+        <article class="doc-section">
+          <h3>Step 4: Train your model</h3>
+          <pre><code>python example.py</code></pre>
+          <p>
+            Load audio, extract MFCC features, train models, and save results to
+            models/.
+          </p>
+        </article>
+
+        <article class="doc-section">
+          <h3>Step 5: Make predictions</h3>
+          <pre><code>python my_prediction.py</code></pre>
+          <p>Use the saved model to label new WAV files.</p>
+        </article>
+
+        <article class="doc-section">
+          <h3>Troubleshooting basics</h3>
+          <ul>
+            <li>Ensure audio files are WAV format under data/raw/class_name/.</li>
+            <li>Activate the virtual environment before running scripts.</li>
+            <li>Add more training data if accuracy is low.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Underwater Sound Classifier. MIT License.</p>
+    </footer>
+  </body>
+</html>

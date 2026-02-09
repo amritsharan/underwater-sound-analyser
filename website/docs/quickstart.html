@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en" class="doc-page">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quickstart | Underwater Sound Classifier</title>
+    <meta name="description" content="Quickstart guide." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="site-header">
+      <div class="brand">Underwater Sound Classifier</div>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="project-overview.html">Overview</a>
+        <a href="getting-started.html">Getting started</a>
+        <a href="api-reference.html">API reference</a>
+      </nav>
+      <a class="cta" href="../index.html#start">Get started</a>
+    </header>
+
+    <main>
+      <section class="doc-hero">
+        <p class="eyebrow">Quickstart</p>
+        <h1>Train and predict in minutes</h1>
+        <p>
+          Use this guide to set up dependencies, organize audio files, and train
+          your first model.
+        </p>
+      </section>
+
+      <section class="doc-content">
+        <article class="doc-section">
+          <h3>1. Setup</h3>
+          <pre><code>python -m venv venv
+venv\Scripts\activate
+pip install -r requirements.txt</code></pre>
+        </article>
+
+        <article class="doc-section">
+          <h3>2. Prepare data</h3>
+          <p>Place WAV files under class folders in data/raw/.</p>
+          <pre><code>data/raw/
+  whale_calls/
+  ship_noise/
+  ambient_ocean/</code></pre>
+        </article>
+
+        <article class="doc-section">
+          <h3>3. Train a model</h3>
+          <pre><code>python example.py</code></pre>
+          <p>
+            This loads audio, extracts MFCC features, trains SVM and Random Forest
+            models, and saves the results in models/.
+          </p>
+        </article>
+
+        <article class="doc-section">
+          <h3>4. Predict audio</h3>
+          <pre><code>python my_prediction.py</code></pre>
+          <p>Use the saved model to label new audio files.</p>
+        </article>
+
+        <article class="doc-section">
+          <h3>Next steps</h3>
+          <ul>
+            <li>Collect 20+ files per class for stronger accuracy.</li>
+            <li>Compare SVM vs Random Forest performance.</li>
+            <li>Visualize spectrograms and MFCCs to validate data quality.</li>
+          </ul>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Underwater Sound Classifier. MIT License.</p>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en" class="doc-page">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>API Reference | Underwater Sound Classifier</title>
+    <meta name="description" content="API reference for UnderwaterSoundClassifier." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Space+Grotesk:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <div class="noise"></div>
+    <header class="site-header">
+      <div class="brand">Underwater Sound Classifier</div>
+      <nav class="nav">
+        <a href="../index.html">Home</a>
+        <a href="project-overview.html">Overview</a>
+        <a href="quickstart.html">Quickstart</a>
+        <a href="getting-started.html">Getting started</a>
+      </nav>
+      <a class="cta" href="../index.html#start">Get started</a>
+    </header>
+
+    <main>
+      <section class="doc-hero">
+        <p class="eyebrow">API reference</p>
+        <h1>UnderwaterSoundClassifier</h1>
+        <p>
+          Key methods and parameters for loading audio, extracting features, and
+          training models.
+        </p>
+      </section>
+
+      <section class="doc-content">
+        <article class="doc-section">
+          <h3>Constructor</h3>
+          <pre><code>UnderwaterSoundClassifier(model_type='svm', n_mfcc=13, sr=16000)</code></pre>
+          <ul>
+            <li>model_type: 'svm' or 'random_forest'</li>
+            <li>n_mfcc: number of MFCC coefficients (default 13)</li>
+            <li>sr: sample rate (default 16000 Hz)</li>
+          </ul>
+        </article>
+
+        <article class="doc-section">
+          <h3>Audio loading</h3>
+          <pre><code>load_audio_file(file_path)
+load_audio_files(data_dir, file_extension='.wav')</code></pre>
+          <p>Load individual files or full class folders.</p>
+        </article>
+
+        <article class="doc-section">
+          <h3>Feature extraction</h3>
+          <pre><code>extract_mfcc_features(audio)
+extract_features()</code></pre>
+          <p>MFCC feature vectors with mean and standard deviation.</p>
+        </article>
+
+        <article class="doc-section">
+          <h3>Training and evaluation</h3>
+          <pre><code>train(test_size=0.2)
+plot_confusion_matrix()</code></pre>
+          <p>Train with a train/test split and inspect metrics.</p>
+        </article>
+
+        <article class="doc-section">
+          <h3>Prediction</h3>
+          <pre><code>predict(audio_file)
+predict_batch(audio_directory)</code></pre>
+          <p>Classify a single file or an entire folder.</p>
+        </article>
+
+        <article class="doc-section">
+          <h3>Model management</h3>
+          <pre><code>save_model(model_path)
+load_model(model_path)</code></pre>
+          <p>Persist models to disk and load them later.</p>
+        </article>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Underwater Sound Classifier. MIT License.</p>
+    </footer>
+  </body>
+</html>
