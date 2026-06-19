@@ -580,16 +580,16 @@ Predicted Class: {prediction}
             classifier = UnderwaterSoundClassifier()
             
             self.figure.clear()
+            ax = self.figure.add_subplot(111)
             
             if viz_type == 'Spectrogram':
-                classifier.plot_spectrogram(audio_file)
+                classifier.plot_spectrogram(audio_file, ax=ax)
             elif viz_type == 'MFCC':
-                classifier.plot_mfcc(audio_file)
+                classifier.plot_mfcc(audio_file, ax=ax)
             else:
                 # Waveform
                 import librosa
                 audio, sr = librosa.load(audio_file, sr=16000)
-                ax = self.figure.add_subplot(111)
                 ax.plot(audio)
                 ax.set_title('Waveform')
                 ax.set_xlabel('Sample')

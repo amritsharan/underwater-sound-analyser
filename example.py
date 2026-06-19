@@ -3,9 +3,14 @@ Example script demonstrating the Underwater Sound Classifier.
 Shows how to train and use the classifier with sample data.
 """
 
+import sys
 from classifier import UnderwaterSoundClassifier
 import os
 from pathlib import Path
+
+# Support UTF-8 output on Windows
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 
 
 def create_sample_data():

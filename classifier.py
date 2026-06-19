@@ -6,9 +6,13 @@ Main module for audio classification using MFCC features and machine learning.
 import os
 import numpy as np
 import librosa
+import librosa.display
 import soundfile as sf
 import pickle
+import matplotlib as mpl
 import matplotlib.pyplot as plt
+import matplotlib.axes as mpl_axes
+mpl.axes = mpl_axes
 from pathlib import Path
 from sklearn.svm import SVC
 from sklearn.ensemble import RandomForestClassifier
@@ -300,7 +304,7 @@ class UnderwaterSoundClassifier:
         print(f"Model loaded from {model_path}")
         print(f"Classes: {self.classes_}")
     
-    def plot_spectrogram(self, audio_file, title="Spectrogram"):
+    def plot_spectrogram(self, audio_file, title="Spectrogram", ax=None):
         """
         Plot the spectrogram of an audio file.
         
@@ -310,6 +314,8 @@ class UnderwaterSoundClassifier:
             Path to the audio file
         title : str
             Title for the plot
+        ax : matplotlib.axes.Axes, optional
+            Axis to plot on (for embedded visualization)
         """
         audio, sr = self.load_audio_file(audio_file)
         
@@ -321,14 +327,23 @@ class UnderwaterSoundClassifier:
         S_db = librosa.power_to_db(S, ref=np.max)
         
         # Plot
-        plt.figure(figsize=(10, 4))
-        img = librosa.display.specshow(S_db, sr=sr, x_axis='time', y_axis='mel')
-        plt.colorbar(img, format='%+2.0f dB')
-        plt.title(title)
-        plt.tight_layout()
-        plt.show()
+        if ax is None:
+            plt.figure(figsize=(10, 4))
+            ax = plt.gca()
+            show = True
+        else:
+            show = False
+            
+        img = librosa.display.specshow(S_db, sr=sr, x_axis='time', y_axis='mel', ax=ax)
+        fig = ax.figure
+        fig.colorbar(img, ax=ax, format='%+2.0f dB')
+        ax.set_title(title)
+        
+        if show:
+            plt.tight_layout()
+            plt.show()
     
-    def plot_mfcc(self, audio_file, title="MFCC"):
+    def plot_mfcc(self, audio_file, title="MFCC", ax=None):
         """
         Plot the MFCC features of an audio file.
         
@@ -338,6 +353,8 @@ class UnderwaterSoundClassifier:
             Path to the audio file
         title : str
             Title for the plot
+        ax : matplotlib.axes.Axes, optional
+            Axis to plot on (for embedded visualization)
         """
         audio, sr = self.load_audio_file(audio_file)
         
@@ -348,13 +365,22 @@ class UnderwaterSoundClassifier:
         mfcc = librosa.feature.mfcc(y=audio, sr=sr, n_mfcc=self.n_mfcc)
         
         # Plot
-        plt.figure(figsize=(10, 4))
-        img = librosa.display.specshow(mfcc, sr=sr, x_axis='time')
-        plt.colorbar(img, format='%+2.0f')
-        plt.title(title)
-        plt.ylabel('MFCC')
-        plt.tight_layout()
-        plt.show()
+        if ax is None:
+            plt.figure(figsize=(10, 4))
+            ax = plt.gca()
+            show = True
+        else:
+            show = False
+            
+        img = librosa.display.specshow(mfcc, sr=sr, x_axis='time', ax=ax)
+        fig = ax.figure
+        fig.colorbar(img, ax=ax, format='%+2.0f')
+        ax.set_title(title)
+        ax.set_ylabel('MFCC')
+        
+        if show:
+            plt.tight_layout()
+            plt.show()
     
     def plot_confusion_matrix(self):
         """Plot confusion matrix from last training."""

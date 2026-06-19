@@ -46,6 +46,11 @@
             <a class="button primary" href="#start">Run the quickstart</a>
             <a class="button ghost" href="#docs">Read the docs</a>
           </div>
+          <div class="upload-area" style="margin-top:1.2rem;">
+            <label class="button ghost" for="audioInput">Upload audio for prediction</label>
+            <input id="audioInput" type="file" accept="audio/wav" style="display:none">
+            <span id="uploadStatus" style="margin-left:0.8rem;color:var(--muted)"></span>
+          </div>
           <div class="hero-stats" aria-label="project highlights">
             <div>
               <span class="stat">26</span>

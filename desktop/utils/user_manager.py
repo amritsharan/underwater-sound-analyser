@@ -21,10 +21,22 @@ class UserManager:
     def load_users(self):
         """Load users from JSON file"""
         if self.users_file.exists():
-            with open(self.users_file, 'r') as f:
-                self.users = json.load(f)
+            try:
+                with open(self.users_file, 'r') as f:
+                    self.users = json.load(f)
+            except Exception:
+                self.users = {}
         else:
             self.users = {}
+            
+        # Ensure demo user exists
+        if 'demo' not in self.users:
+            self.users['demo'] = {
+                'password': 'demo123',
+                'created': str(Path.cwd()),
+                'models': []
+            }
+            self.save_users()
     
     def save_users(self):
         """Save users to JSON file"""

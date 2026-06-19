@@ -4,9 +4,14 @@ Generate test audio files for prediction in the processed folder.
 Creates mixed audio files without categorization for testing the classifier.
 """
 
+import sys
 import numpy as np
 import soundfile as sf
 from pathlib import Path
+
+# Support UTF-8 output on Windows
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 
 
 def generate_whale_call(duration=2.0, sr=16000, variation=0):

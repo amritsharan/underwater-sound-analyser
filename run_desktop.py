@@ -9,6 +9,10 @@ import subprocess
 import os
 from pathlib import Path
 
+# Support UTF-8 output on Windows
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
 
 def get_venv_python():
     """Find and return the venv Python executable path"""

@@ -4,10 +4,15 @@ Generate sample audio files for the Underwater Sound Classifier project.
 Creates synthetic whale calls, ship noise, and ambient underwater sounds.
 """
 
+import sys
 import numpy as np
 import soundfile as sf
 import os
 from pathlib import Path
+
+# Support UTF-8 output on Windows
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 
 
 def generate_whale_call(duration=2.0, sr=16000):
